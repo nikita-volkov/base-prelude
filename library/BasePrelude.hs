@@ -1,7 +1,8 @@
 -- |
 -- This module reexports most of the definitions from the \"base\" package,
 -- which are meant to be imported unqualified.
--- -- For details check out the source.
+-- 
+-- For details check out the source.
 module BasePrelude
 ( 
   module Exports,
