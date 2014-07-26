@@ -27,6 +27,7 @@ import Control.Monad as Exports hiding (mapM_, sequence_, forM_, msum, mapM, seq
 import Control.Monad.ST as Exports
 import Data.Bits as Exports
 import Data.Bool as Exports hiding (bool)
+import Data.Char as Exports 
 import Data.Complex as Exports 
 import Data.Data as Exports
 import Data.Either as Exports
