@@ -71,7 +71,7 @@ import Unsafe.Coerce as Exports
 -- @bool a b p@ evaluates to @a@ when @p@ is @False@, and evaluates to @b@
 -- when @p@ is @True@.
 bool :: a -> a -> Bool -> a
-bool f t = \case False -> f; True -> t
+bool f t b = if b then t else f
 
 {-|
 Like 'traceShow' but returns the shown value instead of a third value.
