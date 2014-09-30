@@ -22,6 +22,7 @@ where
 import Control.Applicative as Exports
 import Control.Arrow as Exports
 import Control.Category as Exports
+import Control.Concurrent as Exports
 import Control.Exception as Exports
 import Control.Monad as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM)
 import Control.Monad.ST as Exports
@@ -49,7 +50,7 @@ import Data.Tuple as Exports
 import Data.Unique as Exports
 import Data.Word as Exports
 import Debug.Trace as Exports hiding (traceShowId, traceM, traceShowM)
-import GHC.Conc as Exports
+import GHC.Conc as Exports hiding (withMVar, threadWaitWriteSTM, threadWaitWrite, threadWaitReadSTM, threadWaitRead)
 import GHC.Exts as Exports (lazy, inline)
 import GHC.Generics as Exports (Generic)
 import GHC.IO.Exception as Exports
