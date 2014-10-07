@@ -55,6 +55,7 @@ import GHC.Exts as Exports (lazy, inline)
 import GHC.Generics as Exports (Generic)
 import GHC.IO.Exception as Exports
 import Prelude as Exports hiding (concat, foldr, mapM_, sequence_, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, mapM, sequence, FilePath, id, (.))
+import System.Environment as Exports
 import System.Exit as Exports
 import System.IO as Exports (Handle, hClose)
 import System.IO.Error as Exports
