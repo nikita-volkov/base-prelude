@@ -100,9 +100,9 @@ Like 'traceM', but uses 'show' on the argument to convert it to a 'String'.
 
 > ... = do
 >   x <- ...
->   traceMShow $ x
+>   traceShowM $ x
 >   y <- ...
->   traceMShow $ x + y
+>   traceShowM $ x + y
 -}
 traceShowM :: (Show a, Monad m) => a -> m ()
 traceShowM = traceM . show
