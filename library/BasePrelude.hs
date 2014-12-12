@@ -31,6 +31,7 @@ import Data.Bool as Exports hiding (bool)
 import Data.Char as Exports 
 import Data.Complex as Exports 
 import Data.Data as Exports
+import Data.Dynamic as Exports
 import Data.Either as Exports
 import Data.Fixed as Exports
 import Data.Foldable as Exports
