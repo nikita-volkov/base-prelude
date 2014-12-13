@@ -13,6 +13,8 @@ module BasePrelude
   traceShowId,
   traceM,
   traceShowM,
+  -- ** Data.Ord
+  Down(..),
 )
 where
 
@@ -42,7 +44,6 @@ import Data.Ix as Exports
 import Data.List as Exports hiding (concat, foldr, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, find, maximumBy, minimumBy, mapAccumL, mapAccumR, foldl')
 import Data.Maybe as Exports
 import Data.Monoid as Exports
-import Data.Ord as Exports (Down(..))
 import Data.Ratio as Exports
 import Data.STRef as Exports
 import Data.String as Exports
@@ -52,7 +53,7 @@ import Data.Unique as Exports
 import Data.Word as Exports
 import Debug.Trace as Exports hiding (traceShowId, traceM, traceShowM)
 import GHC.Conc as Exports hiding (withMVar, threadWaitWriteSTM, threadWaitWrite, threadWaitReadSTM, threadWaitRead)
-import GHC.Exts as Exports (lazy, inline)
+import GHC.Exts as Exports (lazy, inline, sortWith, groupWith)
 import GHC.Generics as Exports (Generic)
 import GHC.IO.Exception as Exports
 import Prelude as Exports hiding (concat, foldr, mapM_, sequence_, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, mapM, sequence, FilePath, id, (.))
@@ -107,3 +108,14 @@ Like 'traceM', but uses 'show' on the argument to convert it to a 'String'.
 -}
 traceShowM :: (Show a, Monad m) => a -> m ()
 traceShowM = traceM . show
+
+-- | The 'Down' type allows you to reverse sort order conveniently.  A value of type
+-- @'Down' a@ contains a value of type @a@ (represented as @'Down' a@).
+-- If @a@ has an @'Ord'@ instance associated with it then comparing two
+-- values thus wrapped will give you the opposite of their normal sort order.
+-- This is particularly useful when sorting in generalised list comprehensions,
+-- as in: @then sortWith by 'Down' x@
+newtype Down a = Down a deriving (Eq, Show, Read)
+
+instance Ord a => Ord (Down a) where
+  compare (Down x) (Down y) = y `compare` x
