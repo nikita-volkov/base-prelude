@@ -52,6 +52,7 @@ import Data.Tuple as Exports
 import Data.Unique as Exports
 import Data.Word as Exports
 import Debug.Trace as Exports hiding (traceShowId, traceM, traceShowM)
+import Foreign.Storable as Exports (Storable)
 import GHC.Conc as Exports hiding (withMVar, threadWaitWriteSTM, threadWaitWrite, threadWaitReadSTM, threadWaitRead)
 import GHC.Exts as Exports (lazy, inline, sortWith, groupWith)
 import GHC.Generics as Exports (Generic)
