@@ -15,6 +15,9 @@ module BasePrelude
   traceShowM,
   -- ** Data.Ord
   Down(..),
+  -- ** Text.Read
+  readEither,
+  readMaybe,
 )
 where
 
@@ -66,8 +69,11 @@ import System.IO.Unsafe as Exports
 import System.Mem as Exports
 import System.Mem.StableName as Exports
 import System.Timeout as Exports
-import Text.Read as Exports (readMaybe, readEither)
+import Text.Read as Exports (Read(..))
 import Unsafe.Coerce as Exports
+
+import qualified Text.ParserCombinators.ReadPrec as ReadPrec
+import qualified Text.ParserCombinators.ReadP as ReadP
 
 -- Reimplementations
 -------------------------
@@ -120,3 +126,26 @@ newtype Down a = Down a deriving (Eq, Show, Read)
 
 instance Ord a => Ord (Down a) where
   compare (Down x) (Down y) = y `compare` x
+
+
+-- | Parse a string using the 'Read' instance.
+-- Succeeds if there is exactly one valid result.
+-- A 'Left' value indicates a parse error.
+readEither :: Read a => String -> Either String a
+readEither s =
+  case [ x | (x,"") <- ReadPrec.readPrec_to_S read' ReadPrec.minPrec s ] of
+    [x] -> Right x
+    []  -> Left "Prelude.read: no parse"
+    _   -> Left "Prelude.read: ambiguous parse"
+  where
+    read' =
+      do x <- readPrec
+         ReadPrec.lift ReadP.skipSpaces
+         return x
+
+-- | Parse a string using the 'Read' instance.
+-- Succeeds if there is exactly one valid result.
+readMaybe :: Read a => String -> Maybe a
+readMaybe s = case readEither s of
+                Left _  -> Nothing
+                Right a -> Just a
