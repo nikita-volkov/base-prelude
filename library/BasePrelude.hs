@@ -53,6 +53,7 @@ import Data.String as Exports
 import Data.Traversable as Exports
 import Data.Tuple as Exports
 import Data.Unique as Exports
+import Data.Version as Exports
 import Data.Word as Exports
 import Debug.Trace as Exports hiding (traceShowId, traceM, traceShowM)
 import Foreign.Storable as Exports (Storable)
