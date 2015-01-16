@@ -6,18 +6,13 @@
 module BasePrelude
 ( 
   module Exports,
-  -- * Reimplementations of functions presented in versions of \"base\" newer than 4.5
+  -- * Reimplementations of functions presented in versions of \"base\" newer than 4.6
   -- ** Data.Bool
   bool,
   -- ** Debug.Trace
   traceShowId,
   traceM,
   traceShowM,
-  -- ** Data.Ord
-  Down(..),
-  -- ** Text.Read
-  readEither,
-  readMaybe,
 )
 where
 
@@ -47,6 +42,7 @@ import Data.Ix as Exports
 import Data.List as Exports hiding (concat, foldr, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, find, maximumBy, minimumBy, mapAccumL, mapAccumR, foldl')
 import Data.Maybe as Exports
 import Data.Monoid as Exports
+import Data.Ord as Exports
 import Data.Ratio as Exports
 import Data.STRef as Exports
 import Data.String as Exports
@@ -72,7 +68,7 @@ import System.Mem.StableName as Exports
 import System.Timeout as Exports
 import Text.ParserCombinators.ReadP as Exports (ReadP, ReadS, readP_to_S, readS_to_P)
 import Text.ParserCombinators.ReadPrec as Exports (ReadPrec, readPrec_to_P, readP_to_Prec, readPrec_to_S, readS_to_Prec)
-import Text.Read as Exports (Read(..))
+import Text.Read as Exports (Read(..), readMaybe, readEither)
 import Unsafe.Coerce as Exports
 
 import qualified Text.ParserCombinators.ReadPrec as ReadPrec
@@ -118,37 +114,3 @@ Like 'traceM', but uses 'show' on the argument to convert it to a 'String'.
 -}
 traceShowM :: (Show a, Monad m) => a -> m ()
 traceShowM = traceM . show
-
--- | The 'Down' type allows you to reverse sort order conveniently.  A value of type
--- @'Down' a@ contains a value of type @a@ (represented as @'Down' a@).
--- If @a@ has an @'Ord'@ instance associated with it then comparing two
--- values thus wrapped will give you the opposite of their normal sort order.
--- This is particularly useful when sorting in generalised list comprehensions,
--- as in: @then sortWith by 'Down' x@
-newtype Down a = Down a deriving (Eq, Show, Read)
-
-instance Ord a => Ord (Down a) where
-  compare (Down x) (Down y) = y `compare` x
-
-
--- | Parse a string using the 'Read' instance.
--- Succeeds if there is exactly one valid result.
--- A 'Left' value indicates a parse error.
-readEither :: Read a => String -> Either String a
-readEither s =
-  case [ x | (x,"") <- ReadPrec.readPrec_to_S read' ReadPrec.minPrec s ] of
-    [x] -> Right x
-    []  -> Left "Prelude.read: no parse"
-    _   -> Left "Prelude.read: ambiguous parse"
-  where
-    read' =
-      do x <- readPrec
-         ReadPrec.lift ReadP.skipSpaces
-         return x
-
--- | Parse a string using the 'Read' instance.
--- Succeeds if there is exactly one valid result.
-readMaybe :: Read a => String -> Maybe a
-readMaybe s = case readEither s of
-                Left _  -> Nothing
-                Right a -> Just a
