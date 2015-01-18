@@ -26,7 +26,10 @@ install:
   # Build the library
   - cabal build
   # Configure and build the remaining stuff
-  - cabal configure --enable-tests && cabal build
+  - cabal configure 
+      --enable-tests 
+      $([ "$build_benchmarks" = "1" ] && echo "--enable-benchmarks")
+  - cabal build
 
 script:
   - cabal test --show-details=always
