@@ -13,6 +13,8 @@ module BasePrelude
   traceShowId,
   traceM,
   traceShowM,
+  -- ** Data.Functor
+  ($>),
 )
 where
 
@@ -35,6 +37,7 @@ import Data.Dynamic as Exports
 import Data.Either as Exports
 import Data.Fixed as Exports
 import Data.Foldable as Exports
+import Data.Functor as Exports hiding (($>))
 import Data.Function as Exports hiding ((.), id)
 import Data.Int as Exports
 import Data.IORef as Exports
@@ -112,3 +115,9 @@ Like 'traceM', but uses 'show' on the argument to convert it to a 'String'.
 -}
 traceShowM :: (Show a, Monad m) => a -> m ()
 traceShowM = traceM . show
+
+infixl 4 $>
+
+-- | Flipped version of '<$'.
+($>) :: Functor f => f a -> b -> f b
+($>) = flip (<$)
