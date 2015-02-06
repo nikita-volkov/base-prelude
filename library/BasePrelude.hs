@@ -9,12 +9,15 @@ module BasePrelude
   -- * Reimplementations of functions presented in versions of \"base\" newer than 4.6
   -- ** Data.Bool
   bool,
+  -- ** Data.Functor
+  ($>),
+  -- ** Data.List
+  uncons,
+  isSubsequenceOf,
   -- ** Debug.Trace
   traceShowId,
   traceM,
   traceShowM,
-  -- ** Data.Functor
-  ($>),
 )
 where
 
@@ -42,7 +45,7 @@ import Data.Function as Exports hiding ((.), id)
 import Data.Int as Exports
 import Data.IORef as Exports
 import Data.Ix as Exports
-import Data.List as Exports hiding (concat, foldr, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, find, maximumBy, minimumBy, mapAccumL, mapAccumR, foldl')
+import Data.List as Exports hiding (isSubsequenceOf, uncons, concat, foldr, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, find, maximumBy, minimumBy, mapAccumL, mapAccumR, foldl')
 import Data.Maybe as Exports
 import Data.Monoid as Exports
 import Data.Ord as Exports
@@ -121,3 +124,29 @@ infixl 4 $>
 -- | Flipped version of '<$'.
 ($>) :: Functor f => f a -> b -> f b
 ($>) = flip (<$)
+
+-- | The 'isSubsequenceOf' function takes two lists and returns 'True' if the
+-- first list is a subsequence of the second list.
+--
+-- @'isSubsequenceOf' x y@ is equivalent to @'elem' x ('subsequences' y)@.
+--
+-- ==== __Examples__
+--
+-- >>> isSubsequenceOf "GHC" "The Glorious Haskell Compiler"
+-- True
+-- >>> isSubsequenceOf ['a','d'..'z'] ['a'..'z']
+-- True
+-- >>> isSubsequenceOf [1..10] [10,9..0]
+-- False
+isSubsequenceOf :: (Eq a) => [a] -> [a] -> Bool
+isSubsequenceOf []    _                    = True
+isSubsequenceOf _     []                   = False
+isSubsequenceOf a@(x:a') (y:b) | x == y    = isSubsequenceOf a' b
+                               | otherwise = isSubsequenceOf a b
+
+-- | Decompose a list into its head and tail. If the list is empty,
+-- returns 'Nothing'. If the list is non-empty, returns @'Just' (x, xs)@,
+-- where @x@ is the head of the list and @xs@ its tail.
+uncons        :: [a] -> Maybe (a, [a])
+uncons []     = Nothing
+uncons (x:xs) = Just (x, xs)
