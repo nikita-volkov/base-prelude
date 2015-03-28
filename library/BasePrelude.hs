@@ -1,10 +1,10 @@
 -- |
 -- This module reexports most of the definitions from the \"base\" package,
 -- which are meant to be imported unqualified.
--- 
+--
 -- For details check out the source.
 module BasePrelude
-( 
+(
   module Exports,
   -- * Reimplementations of functions presented in versions of \"base\" newer than 4.6
   -- ** Data.Bool
@@ -30,11 +30,12 @@ import Control.Category as Exports
 import Control.Concurrent as Exports
 import Control.Exception as Exports
 import Control.Monad as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM)
+import Control.Monad.Fix as Exports hiding (fix)
 import Control.Monad.ST as Exports
 import Data.Bits as Exports
 import Data.Bool as Exports hiding (bool)
-import Data.Char as Exports 
-import Data.Complex as Exports 
+import Data.Char as Exports
+import Data.Complex as Exports
 import Data.Data as Exports
 import Data.Dynamic as Exports
 import Data.Either as Exports
