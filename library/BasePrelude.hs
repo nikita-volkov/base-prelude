@@ -9,11 +9,14 @@ module BasePrelude
   -- * Reimplementations of functions presented in versions of \"base\" newer than 4.6
   -- ** Data.Bool
   bool,
+  -- ** Data.Function
+  (&),
   -- ** Data.Functor
   ($>),
   -- ** Data.List
-  uncons,
   isSubsequenceOf,
+  sortOn,
+  uncons,
   -- ** Debug.Trace
   traceShowId,
   traceM,
@@ -126,6 +129,14 @@ infixl 4 $>
 ($>) :: Functor f => f a -> b -> f b
 ($>) = flip (<$)
 
+infixl 1 &
+
+-- | '&' is a reverse application operator.  This provides notational
+-- convenience.  Its precedence is one higher than that of the forward
+-- application operator '$', which allows '&' to be nested in '$'.
+(&) :: a -> (a -> b) -> b
+x & f = f x
+
 -- | The 'isSubsequenceOf' function takes two lists and returns 'True' if the
 -- first list is a subsequence of the second list.
 --
@@ -151,3 +162,12 @@ isSubsequenceOf a@(x:a') (y:b) | x == y    = isSubsequenceOf a' b
 uncons        :: [a] -> Maybe (a, [a])
 uncons []     = Nothing
 uncons (x:xs) = Just (x, xs)
+
+-- | Sort a list by comparing the results of a key function applied to each
+-- element.  @sortOn f@ is equivalent to @sortBy . comparing f@, but has the
+-- performance advantage of only evaluating @f@ once for each element in the
+-- input list.  This is called the decorate-sort-undecorate paradigm, or
+-- Schwartzian transform.
+sortOn :: Ord b => (a -> b) -> [a] -> [a]
+sortOn f =
+  map snd . sortBy (comparing fst) . map (\x -> let y = f x in y `seq` (y, x))
