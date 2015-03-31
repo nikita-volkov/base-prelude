@@ -45,11 +45,11 @@ import Data.Either as Exports
 import Data.Fixed as Exports
 import Data.Foldable as Exports
 import Data.Functor as Exports hiding (($>))
-import Data.Function as Exports hiding ((.), id)
+import Data.Function as Exports hiding ((.), id, (&))
 import Data.Int as Exports
 import Data.IORef as Exports
 import Data.Ix as Exports
-import Data.List as Exports hiding (isSubsequenceOf, uncons, concat, foldr, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, find, maximumBy, minimumBy, mapAccumL, mapAccumR, foldl')
+import Data.List as Exports hiding (sortOn, isSubsequenceOf, uncons, concat, foldr, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, find, maximumBy, minimumBy, mapAccumL, mapAccumR, foldl')
 import Data.Maybe as Exports
 import Data.Monoid as Exports
 import Data.Ord as Exports
