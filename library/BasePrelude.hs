@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 -- |
 -- This module reexports most of the definitions from the \"base\" package,
 -- which are meant to be imported unqualified.
@@ -28,13 +29,16 @@ where
 -------------------------
 
 import Control.Applicative as Exports
-import Control.Arrow as Exports
+import Control.Arrow as Exports hiding (first, second)
 import Control.Category as Exports
 import Control.Concurrent as Exports
 import Control.Exception as Exports
 import Control.Monad as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM)
 import Control.Monad.Fix as Exports hiding (fix)
 import Control.Monad.ST as Exports
+#if MIN_VERSION_base(4,8,0)
+import Data.Bifunctor as Exports
+#endif
 import Data.Bits as Exports
 import Data.Bool as Exports hiding (bool)
 import Data.Char as Exports
