@@ -28,14 +28,18 @@ where
 -------------------------
 
 import Control.Applicative as Exports
+#if MIN_VERSION_base(4,8,0)
 import Control.Arrow as Exports hiding (first, second)
+import Data.Bifunctor as Exports
+#else
+import Control.Arrow as Exports
+#endif
 import Control.Category as Exports
 import Control.Concurrent as Exports
 import Control.Exception as Exports
 import Control.Monad as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM)
 import Control.Monad.Fix as Exports hiding (fix)
 import Control.Monad.ST as Exports
-import Data.Bifunctor as Exports
 import Data.Bits as Exports
 import Data.Bool as Exports hiding (bool)
 import Data.Char as Exports
