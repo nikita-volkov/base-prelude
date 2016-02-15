@@ -29,6 +29,8 @@ license-file:
   LICENSE
 build-type:
   Simple
+extra-source-files:
+  CHANGELOG.md
 cabal-version:
   >=1.10
 
