@@ -1,3 +1,7 @@
+# 1.0.1
+
+* Relaxed the "base" dependency
+
 # 1
 
 No changes.
