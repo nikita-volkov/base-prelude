@@ -87,9 +87,23 @@ import Text.Printf as Exports (printf, hPrintf)
 import Text.Read as Exports (Read(..), readMaybe, readEither)
 import Unsafe.Coerce as Exports
 
+-- Conditional imports for reimplementations
+#if MIN_VERSION_base(4,7,0)
+import Data.Bool (bool)
+import Debug.Trace (traceShowId, traceM, traceShowM)
+import Data.Functor (($>))
+#endif
+#if MIN_VERSION_base(4,8,0)
+import Data.Function ((&))
+import Data.List (isSubsequenceOf, sortOn, uncons)
+#endif
 
--- Reimplementations
--------------------------
+
+---------------------------------
+-- Reimplementations for base-4.7
+---------------------------------
+
+#if !MIN_VERSION_base(4,7,0)
 
 -- | Case analysis for the 'Bool' type.
 -- @bool a b p@ evaluates to @a@ when @p@ is @False@, and evaluates to @b@
@@ -135,6 +149,14 @@ infixl 4 $>
 ($>) :: Functor f => f a -> b -> f b
 ($>) = flip (<$)
 
+#endif
+
+---------------------------------
+-- Reimplementations for base-4.8
+---------------------------------
+
+#if !MIN_VERSION_base(4,8,0)
+
 infixl 1 &
 
 -- | '&' is a reverse application operator.  This provides notational
@@ -177,3 +199,5 @@ uncons (x:xs) = Just (x, xs)
 sortOn :: Ord b => (a -> b) -> [a] -> [a]
 sortOn f =
   map snd . sortBy (comparing fst) . map (\x -> let y = f x in y `seq` (y, x))
+
+#endif
