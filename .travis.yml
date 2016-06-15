@@ -1,7 +1,8 @@
 env:
-  - ghc=7.6.1
-  - ghc=7.8.1
-  - ghc=7.10.1
+  - ghc=7.6.1 cabal=1.22
+  - ghc=7.8.1 cabal=1.22
+  - ghc=7.10.1 cabal=1.22
+  - ghc=8.0.1 cabal=1.24
 
 install:
   # Set up the Shell to treat the semicolon as &&
@@ -10,8 +11,8 @@ install:
   - 
     travis_retry sudo add-apt-repository -y ppa:hvr/ghc;
     travis_retry sudo apt-get update;
-    travis_retry sudo apt-get install cabal-install-1.22 ghc-$ghc;
-    export PATH=/opt/ghc/$ghc/bin:/opt/cabal/1.22/bin:$PATH;
+    travis_retry sudo apt-get install cabal-install-$cabal ghc-$ghc;
+    export PATH=/opt/ghc/$ghc/bin:/opt/cabal/$cabal/bin:$PATH;
   # Update the Cabal database
   - cabal update
   # Switch to the distro:
