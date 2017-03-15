@@ -1,3 +1,7 @@
+# 1.0.2
+
+* Export `Foreign`
+
 # 1.0.1
 
 * Relaxed the "base" dependency
