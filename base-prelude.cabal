@@ -1,7 +1,7 @@
 name:
   base-prelude
 version:
-  1.1
+  1.2
 synopsis:
   The most complete prelude formed solely from the "base" package
 description:
