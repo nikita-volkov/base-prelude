@@ -36,9 +36,6 @@ import Control.Exception as Exports
 import Control.Monad as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM)
 import Control.Monad.Fix as Exports hiding (fix)
 import Control.Monad.ST as Exports
-#if MIN_VERSION_base(4,8,0)
-import Data.Bifunctor as Exports
-#endif
 import Data.Bits as Exports
 import Data.Bool as Exports hiding (bool)
 import Data.Char as Exports
@@ -89,6 +86,26 @@ import Text.ParserCombinators.ReadPrec as Exports (ReadPrec, readPrec_to_P, read
 import Text.Printf as Exports (printf, hPrintf)
 import Text.Read as Exports (Read(..), readMaybe, readEither)
 import Unsafe.Coerce as Exports
+
+-- Conditional imports for newer bases
+#if MIN_VERSION_base(4,7,0)
+import Data.Coerce as Exports
+import Data.Proxy as Exports
+#endif
+#if MIN_VERSION_base(4,8,0)
+import Data.Bifunctor as Exports
+import Data.Functor.Identity as Exports
+import Data.Void as Exports
+import Numeric.Natural as Exports
+#endif
+#if MIN_VERSION_base(4,9,0)
+import Control.Monad.Fail as Exports (MonadFail)
+import Control.Monad.IO.Class as Exports
+import Data.Functor.Classes as Exports
+import Data.Functor.Compose as Exports
+import Data.List.NonEmpty as Exports (NonEmpty(..))
+import Data.Semigroup as Exports hiding ((<>), First(..), Last(..))
+#endif
 
 -- Conditional imports for reimplementations
 #if MIN_VERSION_base(4,7,0)
