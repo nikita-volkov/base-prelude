@@ -1,3 +1,7 @@
+# 1.3
+
+* Give preference to Semigroup definitions over Monoid
+
 # 1.2
 
 * Replace the `Foreign` export with `Foreign.Storable`, `Foreign.Ptr`, `Foreign.ForeignPtr`, `Foreign.StablePtr`. It's more conservative and way less likely to cause name collisions.
