@@ -35,34 +35,71 @@ import Control.Concurrent as Exports
 import Control.Exception as Exports
 import Control.Monad as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM)
 import Control.Monad.Fix as Exports hiding (fix)
+#if MIN_VERSION_base(4,9,0)
+import Control.Monad.Fail as Exports (MonadFail)
+#endif
+#if MIN_VERSION_base(4,9,0)
+import Control.Monad.IO.Class as Exports
+#endif
 import Control.Monad.ST as Exports
+#if MIN_VERSION_base(4,8,0)
+import Data.Bifunctor as Exports
+#endif
 import Data.Bits as Exports
-import Data.Bool as Exports hiding (bool)
+import Data.Bool as Exports
 import Data.Char as Exports
+#if MIN_VERSION_base(4,7,0)
+import Data.Coerce as Exports
+#endif
 import Data.Complex as Exports
 import Data.Data as Exports
 import Data.Dynamic as Exports
 import Data.Either as Exports
 import Data.Fixed as Exports
 import Data.Foldable as Exports
-import Data.Functor as Exports hiding (($>))
-import Data.Function as Exports hiding ((.), id, (&))
+import Data.Functor as Exports
+#if MIN_VERSION_base(4,9,0)
+import Data.Functor.Classes as Exports
+#endif
+#if MIN_VERSION_base(4,9,0)
+import Data.Functor.Compose as Exports
+#endif
+#if MIN_VERSION_base(4,8,0)
+import Data.Functor.Identity as Exports
+#endif
+import Data.Function as Exports hiding ((.), id)
 import Data.Int as Exports
 import Data.IORef as Exports
 import Data.Ix as Exports
-import Data.List as Exports hiding (sortOn, isSubsequenceOf, uncons, concat, foldr, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, find, maximumBy, minimumBy, mapAccumL, mapAccumR, foldl')
+import Data.List as Exports hiding (concat, foldr, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, find, maximumBy, minimumBy, mapAccumL, mapAccumR, foldl')
+#if MIN_VERSION_base(4,9,0)
+import Data.List.NonEmpty as Exports (NonEmpty(..))
+#endif
 import Data.Maybe as Exports
+#if MIN_VERSION_base(4,9,0)
+import Data.Monoid as Exports hiding ((<>), First(..), Last(..))
+#else
 import Data.Monoid as Exports
+#endif
 import Data.Ord as Exports
+#if MIN_VERSION_base(4,7,0)
+import Data.Proxy as Exports
+#endif
 import Data.Ratio as Exports
+#if MIN_VERSION_base(4,9,0)
+import Data.Semigroup as Exports
+#endif
 import Data.STRef as Exports
 import Data.String as Exports
 import Data.Traversable as Exports
 import Data.Tuple as Exports
 import Data.Unique as Exports
 import Data.Version as Exports
+#if MIN_VERSION_base(4,8,0)
+import Data.Void as Exports
+#endif
 import Data.Word as Exports
-import Debug.Trace as Exports hiding (traceShowId, traceM, traceShowM)
+import Debug.Trace as Exports
 import Foreign.Storable as Exports
 import Foreign.Ptr as Exports
 import Foreign.ForeignPtr as Exports
@@ -72,6 +109,9 @@ import GHC.Exts as Exports (lazy, inline, sortWith, groupWith)
 import GHC.Generics as Exports (Generic)
 import GHC.IO.Exception as Exports
 import Numeric as Exports
+#if MIN_VERSION_base(4,8,0)
+import Numeric.Natural as Exports
+#endif
 import Prelude as Exports hiding (concat, foldr, mapM_, sequence_, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, mapM, sequence, id, (.))
 import System.Environment as Exports
 import System.Exit as Exports
@@ -86,37 +126,6 @@ import Text.ParserCombinators.ReadPrec as Exports (ReadPrec, readPrec_to_P, read
 import Text.Printf as Exports (printf, hPrintf)
 import Text.Read as Exports (Read(..), readMaybe, readEither)
 import Unsafe.Coerce as Exports
-
--- Conditional imports for newer bases
-#if MIN_VERSION_base(4,7,0)
-import Data.Coerce as Exports
-import Data.Proxy as Exports
-#endif
-#if MIN_VERSION_base(4,8,0)
-import Data.Bifunctor as Exports
-import Data.Functor.Identity as Exports
-import Data.Void as Exports
-import Numeric.Natural as Exports
-#endif
-#if MIN_VERSION_base(4,9,0)
-import Control.Monad.Fail as Exports (MonadFail)
-import Control.Monad.IO.Class as Exports
-import Data.Functor.Classes as Exports
-import Data.Functor.Compose as Exports
-import Data.List.NonEmpty as Exports (NonEmpty(..))
-import Data.Semigroup as Exports hiding ((<>), First(..), Last(..))
-#endif
-
--- Conditional imports for reimplementations
-#if MIN_VERSION_base(4,7,0)
-import Data.Bool (bool)
-import Debug.Trace (traceShowId, traceM, traceShowM)
-import Data.Functor (($>))
-#endif
-#if MIN_VERSION_base(4,8,0)
-import Data.Function ((&))
-import Data.List (isSubsequenceOf, sortOn, uncons)
-#endif
 
 
 ---------------------------------
