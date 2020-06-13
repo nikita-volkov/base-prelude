@@ -32,7 +32,7 @@ import Data.Data as Exports
 import Data.Dynamic as Exports
 import Data.Either as Exports
 import Data.Fixed as Exports
-import Data.Foldable as Exports
+import Data.Foldable as Exports hiding (toList)
 import Data.Functor as Exports
 import Data.Functor.Classes as Exports
 import Data.Functor.Compose as Exports
@@ -63,15 +63,15 @@ import Foreign.Ptr as Exports
 import Foreign.ForeignPtr as Exports
 import Foreign.StablePtr as Exports
 import GHC.Conc as Exports hiding (withMVar, threadWaitWriteSTM, threadWaitWrite, threadWaitReadSTM, threadWaitRead)
-import GHC.Exts as Exports (lazy, inline, sortWith, groupWith)
-import GHC.Generics as Exports (Generic)
+import GHC.Exts as Exports (lazy, inline, sortWith, groupWith, IsList(..))
+import GHC.Generics as Exports (Generic, Generic1)
 import GHC.IO.Exception as Exports
 import Numeric as Exports
 import Numeric.Natural as Exports
 import Prelude as Exports hiding (concat, foldr, mapM_, sequence_, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, mapM, sequence, id, (.), fail)
 import System.Environment as Exports
 import System.Exit as Exports
-import System.IO as Exports (Handle, hClose)
+import System.IO as Exports
 import System.IO.Error as Exports
 import System.IO.Unsafe as Exports
 import System.Mem as Exports
