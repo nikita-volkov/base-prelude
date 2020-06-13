@@ -18,8 +18,8 @@ import Control.Category as Exports
 import Control.Concurrent as Exports
 import Control.Exception as Exports
 import Control.Monad as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM, fail)
-import Control.Monad.Fix as Exports hiding (fix)
 import Control.Monad.Fail as Exports
+import Control.Monad.Fix as Exports hiding (fix)
 import Control.Monad.IO.Class as Exports
 import Control.Monad.ST as Exports
 import Data.Bifunctor as Exports
@@ -33,11 +33,11 @@ import Data.Dynamic as Exports
 import Data.Either as Exports
 import Data.Fixed as Exports
 import Data.Foldable as Exports hiding (toList)
+import Data.Function as Exports hiding ((.), id)
 import Data.Functor as Exports
 import Data.Functor.Classes as Exports
 import Data.Functor.Compose as Exports
 import Data.Functor.Identity as Exports
-import Data.Function as Exports hiding ((.), id)
 import Data.Int as Exports
 import Data.IORef as Exports
 import Data.Ix as Exports
@@ -58,10 +58,10 @@ import Data.Version as Exports
 import Data.Void as Exports
 import Data.Word as Exports
 import Debug.Trace as Exports
-import Foreign.Storable as Exports
-import Foreign.Ptr as Exports
 import Foreign.ForeignPtr as Exports
+import Foreign.Ptr as Exports
 import Foreign.StablePtr as Exports
+import Foreign.Storable as Exports
 import GHC.Conc as Exports hiding (withMVar, threadWaitWriteSTM, threadWaitWrite, threadWaitReadSTM, threadWaitRead)
 import GHC.Exts as Exports (lazy, inline, sortWith, groupWith, IsList(..))
 import GHC.Generics as Exports (Generic, Generic1)
