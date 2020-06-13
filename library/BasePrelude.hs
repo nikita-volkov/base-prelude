@@ -41,7 +41,7 @@ import Data.Function as Exports hiding ((.), id)
 import Data.Int as Exports
 import Data.IORef as Exports
 import Data.Ix as Exports
-import Data.List as Exports hiding (concat, foldr, foldl1, maximum, minimum, product, sum, all, and, any, concatMap, elem, foldl, foldr1, notElem, or, find, maximumBy, minimumBy, mapAccumL, mapAccumR, foldl')
+import Data.List as Exports hiding (all, and, any, concat, concatMap, elem, find, foldl, foldl', foldl1, foldr, foldr1, mapAccumL, mapAccumR, maximum, maximumBy, minimum, minimumBy, notElem, or, product, sum)
 import Data.List.NonEmpty as Exports (NonEmpty(..))
 import Data.Maybe as Exports
 import Data.Monoid as Exports hiding ((<>), First(..), Last(..))
