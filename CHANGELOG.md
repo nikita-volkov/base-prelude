@@ -1,3 +1,8 @@
+# 1.4
+
+* Restrict to min GHC 8.0 and give preference to MonadFail
+* Add IsList, Generic1 and export all of System.IO
+
 # 1.3
 
 * Give preference to Semigroup definitions over Monoid
