@@ -15,6 +15,10 @@ module BasePrelude.Operators
     (Control.Monad.>>),
     (Control.Monad.>>=),
 
+    -- * From "Data.Bits"
+    (Data.Bits..&.),
+    (Data.Bits..|.),
+
     -- * From "Data.Bool"
     (Data.Bool.&&),
     (Data.Bool.||),
@@ -57,6 +61,7 @@ where
 
 import qualified Control.Applicative
 import qualified Control.Monad
+import qualified Data.Bits
 import qualified Data.Bool
 import qualified Data.Eq
 import qualified Data.Function
