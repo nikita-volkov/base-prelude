@@ -1,6 +1,6 @@
 -- |
--- This module reexports most of the definitions from the \"base\" package,
--- which are meant to be imported unqualified.
+-- Reexports of most of the definitions from the \"base\" package,
+-- which it is a common practice to import unqualified.
 --
 -- For details check out the source.
 module BasePrelude
