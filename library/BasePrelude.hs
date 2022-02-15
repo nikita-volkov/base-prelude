@@ -33,6 +33,7 @@ import Data.Function as Exports hiding (id, (.))
 import Data.Functor as Exports
 import Data.Functor.Classes as Exports
 import Data.Functor.Compose as Exports
+import Data.Functor.Contravariant as Exports
 import Data.Functor.Identity as Exports
 import Data.IORef as Exports
 import Data.Int as Exports
