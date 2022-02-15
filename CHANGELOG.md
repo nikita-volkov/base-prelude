@@ -1,3 +1,9 @@
+# 1.5.1
+
+* Add OverloadedLabels and Records
+* Add Contravariant
+* Add STM.orElse
+
 # 1.5
 
 * Exclude Data.Semigroup.Option
