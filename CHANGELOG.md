@@ -1,7 +1,8 @@
-# 1.5.1
+# 1.6
 
-* Add OverloadedLabels and Records
+* Restrict to min GHC 8.6
 * Add Contravariant
+* Add OverloadedLabels and Records
 * Add STM.orElse
 
 # 1.5
