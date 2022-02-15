@@ -33,12 +33,8 @@ jobs:
           ghc-version: ${{ matrix.ghc }}
           cabal-version: 3.4
       
-      - run: |
-          echo "constraints: ${{ matrix.text_constraint }}" >> cabal.project
-          echo "allow-newer:" >> cabal.project
-          echo "  *:*" >> cabal.project
-      - run: cabal v2-update --enable-tests --enable-benchmarks
-      - run: cabal v2-freeze --enable-tests --enable-benchmarks
+      - run: cabal update
+      - run: cabal freeze --enable-tests --enable-benchmarks
 
       - uses: actions/cache@v2
         with:
@@ -49,7 +45,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.ghc }}-
 
-      - run: cabal v2-build --enable-tests --enable-benchmarks
-      - run: cabal v2-test --enable-tests --enable-benchmarks
-      - run: cabal v2-haddock --enable-tests --enable-benchmarks
+      - run: cabal build --enable-tests --enable-benchmarks
+      - run: cabal test --enable-tests --enable-benchmarks
+      - run: cabal haddock --enable-tests --enable-benchmarks
 
