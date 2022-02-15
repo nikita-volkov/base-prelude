@@ -59,7 +59,7 @@ import Foreign.ForeignPtr as Exports
 import Foreign.Ptr as Exports
 import Foreign.StablePtr as Exports
 import Foreign.Storable as Exports
-import GHC.Conc as Exports hiding (threadWaitRead, threadWaitReadSTM, threadWaitWrite, threadWaitWriteSTM, withMVar)
+import GHC.Conc as Exports hiding (orElse, threadWaitRead, threadWaitReadSTM, threadWaitWrite, threadWaitWriteSTM, withMVar)
 import GHC.Exts as Exports (IsList (..), groupWith, inline, lazy, sortWith)
 import GHC.Generics as Exports (Generic, Generic1)
 import GHC.IO.Exception as Exports
