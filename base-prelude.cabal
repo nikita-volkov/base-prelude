@@ -1,7 +1,7 @@
 cabal-version: 3.0
 
 name: base-prelude
-version: 1.4
+version: 1.5
 synopsis: The most complete prelude formed solely from the "base" package
 description:
   A library which aims to reexport all the non-conflicting and
