@@ -63,6 +63,8 @@ import GHC.Conc as Exports hiding (orElse, threadWaitRead, threadWaitReadSTM, th
 import GHC.Exts as Exports (IsList (..), groupWith, inline, lazy, sortWith)
 import GHC.Generics as Exports (Generic, Generic1)
 import GHC.IO.Exception as Exports
+import GHC.OverloadedLabels as Exports
+import GHC.Records as Exports
 import Numeric as Exports
 import Numeric.Natural as Exports
 import System.Environment as Exports
