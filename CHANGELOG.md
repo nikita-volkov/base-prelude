@@ -1,3 +1,9 @@
+# 1.5
+
+* Exclude Data.Semigroup.Option
+* Restrict to min GHC 8.4
+* Add focused preludes for data types and operators
+
 # 1.4
 
 * Restrict to min GHC 8.0 and give preference to MonadFail
