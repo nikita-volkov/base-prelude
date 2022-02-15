@@ -2,7 +2,7 @@ cabal-version: 3.0
 
 name: base-prelude
 version: 1.6
-synopsis: The most complete prelude formed solely from the "base" package
+synopsis: Featureful preludes formed solely from the "base" package
 description:
   A library which aims to reexport all the non-conflicting and
   most general definitions from the \"base\" package.
@@ -10,6 +10,10 @@ description:
   exceptions, generics, ST, MVars and STM.
 
   This package will never have any dependencies other than \"base\".
+
+  Besides a rich prelude it provides limited ones like "BasePrelude.DataTypes",
+  which only exports the data-types defined across the \"base\" package,
+  and "BasePrelude.Operators", which only exports the common operators.
 
   /Versioning policy/
 
