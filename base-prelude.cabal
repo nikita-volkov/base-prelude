@@ -29,7 +29,6 @@ maintainer: Nikita Volkov <nikita.y.volkov@mail.ru>
 copyright: (c) 2014, Nikita Volkov
 license: MIT
 license-file: LICENSE
-build-type: Simple
 extra-source-files: CHANGELOG.md
 
 source-repository head
