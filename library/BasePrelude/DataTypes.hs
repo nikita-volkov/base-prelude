@@ -32,6 +32,9 @@ module BasePrelude.DataTypes
     Data.Word.Word32,
     Data.Word.Word64,
 
+    -- * From "Data.Complex"
+    Data.Complex.Complex (..),
+
     -- * From "Data.Ratio"
     Data.Ratio.Rational,
 
@@ -43,6 +46,7 @@ module BasePrelude.DataTypes
   )
 where
 
+import qualified Data.Complex
 import qualified Data.Int
 import qualified Data.List.NonEmpty
 import qualified Data.Ratio
