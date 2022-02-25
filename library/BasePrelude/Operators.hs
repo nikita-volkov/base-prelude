@@ -6,6 +6,7 @@ module BasePrelude.Operators
     (Control.Applicative.*>),
     (Control.Applicative.<*),
     (Control.Applicative.<*>),
+    (Control.Applicative.<**>),
     (Control.Applicative.<|>),
 
     -- * From "Control.Monad"
