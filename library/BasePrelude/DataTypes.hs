@@ -20,17 +20,17 @@ module BasePrelude.DataTypes
 
     -- * From "Data.Int"
     Data.Int.Int,
+    Data.Int.Int8,
     Data.Int.Int16,
     Data.Int.Int32,
     Data.Int.Int64,
-    Data.Int.Int8,
 
     -- * From "Data.Word"
     Data.Word.Word,
+    Data.Word.Word8,
     Data.Word.Word16,
     Data.Word.Word32,
     Data.Word.Word64,
-    Data.Word.Word8,
 
     -- * From "Data.Ratio"
     Data.Ratio.Rational,
