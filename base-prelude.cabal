@@ -1,46 +1,42 @@
-cabal-version: 3.0
-
-name: base-prelude
-version: 1.6.1
-synopsis: Featureful preludes formed solely from the "base" package
+cabal-version:      3.0
+name:               base-prelude
+version:            1.6.1
+synopsis:           Featureful preludes formed solely from the "base" package
 description:
   A library which aims to reexport all the non-conflicting and
   most general definitions from the \"base\" package.
   This includes APIs for applicatives, arrows, monoids, foldables, traversables,
   exceptions, generics, ST, MVars and STM.
-
   This package will never have any dependencies other than \"base\".
-
   Besides a rich prelude it provides limited ones like "BasePrelude.DataTypes",
   which only exports the data-types defined across the \"base\" package,
   and "BasePrelude.Operators", which only exports the common operators.
-
   /Versioning policy/
-
   The versioning policy of this package deviates from PVP in the sense
   that its exports in part are transitively determined by the version of \"base\".
   Therefore it's recommended for the users of \"base-prelude\" to specify
   the bounds of \"base\" as well.
-category: Prelude
-homepage: https://github.com/nikita-volkov/base-prelude
-bug-reports: https://github.com/nikita-volkov/base-prelude/issues
-author: Nikita Volkov <nikita.y.volkov@mail.ru>
-maintainer: Nikita Volkov <nikita.y.volkov@mail.ru>
-copyright: (c) 2014, Nikita Volkov
-license: MIT
-license-file: LICENSE
+
+category:           Prelude
+homepage:           https://github.com/nikita-volkov/base-prelude
+bug-reports:        https://github.com/nikita-volkov/base-prelude/issues
+author:             Nikita Volkov <nikita.y.volkov@mail.ru>
+maintainer:         Nikita Volkov <nikita.y.volkov@mail.ru>
+copyright:          (c) 2014, Nikita Volkov
+license:            MIT
+license-file:       LICENSE
 extra-source-files: CHANGELOG.md
 
 source-repository head
-  type: git
+  type:     git
   location: git://github.com/nikita-volkov/base-prelude.git
 
 library
-  hs-source-dirs: library
+  hs-source-dirs:   library
   default-language: Haskell2010
   exposed-modules:
     BasePrelude
     BasePrelude.DataTypes
     BasePrelude.Operators
-  build-depends:
-    base >=4.12 && <5
+
+  build-depends:    base >=4.12 && <5
