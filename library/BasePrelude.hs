@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -Wno-dodgy-imports -Wno-unused-imports #-}
+
 -- |
 -- Reexports of most of the definitions from the \"base\" package,
 -- which it is a common practice to import unqualified.
@@ -30,7 +32,7 @@ import Data.Either as Exports
 import Data.Fixed as Exports
 import Data.Foldable as Exports hiding (toList)
 import Data.Function as Exports hiding (id, (.))
-import Data.Functor as Exports
+import Data.Functor as Exports hiding (unzip)
 import Data.Functor.Classes as Exports
 import Data.Functor.Compose as Exports
 import Data.Functor.Contravariant as Exports
